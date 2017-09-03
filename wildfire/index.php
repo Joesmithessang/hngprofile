@@ -44,7 +44,27 @@
     <div class="container">
 
       <div class="row">
-      <?php
+
+          <div class="col-md-12">
+             <h4>Top Gaining Cryptocurrencies</h4>
+             <table class="table table-striped table-responsive">
+                 <thead>
+                     <tr>
+                         <th>S/no</th>
+                         <th>Coin</th>
+                         <th>Currency Pair</th>
+                         <th>Buy trade Vol. 5mins ago</th>
+                         <th>Total buy trade vol. 5mins ago</th>
+                         <th>% of coin in total buy trade vol. 5mins ago</th>
+                         <th>Current Buy trade Vol.</th>
+                         <th>Current Total buy trade volume</th>
+                         <th>% of coin in total buy trade volume</th>
+
+                     </tr>
+                 </thead>
+                 <tbody>
+
+                   <?php
 
                        // Lets fetch record from database
                        $records = fetchRecords();
@@ -114,8 +134,20 @@
                               //$update = updatePercentageChange ($percentage_change, $record['currencypair']);
 
                     ?>
+                               <tr>
+                                 <td><?=$counter;?></td>
+                                 <td><?=$record['coin'];?></td>
+                                 <td>BTC_<?=$record['currencypair'];?></td>
+                                 <td><?=$record['buy'];?></td>
+                                 <td><?=$previous_total_trade_volume ;?></td>
+                                 <td><?=$previous_percentage?>%</td>
+                                 <td><?=$record['current_buy'];?></td>
+                                 <td><?=$current_total_trade_volume ;?></td>
+                                 <td><?=$current_percentage?>%</td>
 
-                    <?php
+                               </tr>
+
+                       <?php
                                $counter++;
                                }
 
@@ -128,9 +160,14 @@
                                $current_top_coin_details = GetCurrentTopCoinDetails($most_popular_coin);
 
                         ?>
-                          
 
-      <div class="col-md-12">
+               </tbody>
+               </table>
+
+          </div>
+
+
+          <div class="col-md-12">
               <div class="alert alert-success" role="alert">
                   <h4>Who is gaining the shift?</h4>
 
@@ -163,49 +200,7 @@
 
                   </p>
               </div>
-          </div> 
-
-          <div class="col-md-12">
-             <h4>Top Gaining Cryptocurrencies</h4>
-             <table class="table table-striped table-responsive">
-                 <thead>
-                     <tr>
-                         <th>S/no</th>
-                         <th>Coin</th>
-                         <th>Currency Pair</th>
-                         <th>Buy trade Vol. 5mins ago</th>
-                         <th>Total buy trade vol. 5mins ago</th>
-                         <th>% of coin in total buy trade vol. 5mins ago</th>
-                         <th>Current Buy trade Vol.</th>
-                         <th>Current Total buy trade volume</th>
-                         <th>% of coin in total buy trade volume</th>
-
-                     </tr>
-                 </thead>
-                 <tbody>
-
-                         <tr>
-                                 <td><?=$counter;?></td>
-                                 <td><?=$record['coin'];?></td>
-                                 <td>BTC_<?=$record['currencypair'];?></td>
-                                 <td><?=$record['buy'];?></td>
-                                 <td><?=$previous_total_trade_volume ;?></td>
-                                 <td><?=$previous_percentage?>%</td>
-                                 <td><?=$record['current_buy'];?></td>
-                                 <td><?=$current_total_trade_volume ;?></td>
-                                 <td><?=$current_percentage?>%</td>
-
-                               </tr>
-
-                       
-
-               </tbody>
-               </table>
-
           </div>
-
-
-          
 
       </div>
 
