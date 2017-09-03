@@ -4,7 +4,7 @@
      require_once 'function/function.php';
 
       $url1=$_SERVER['REQUEST_URI'];
-      header("Refresh: 60; URL=$url1");
+      header("Refresh: 30; URL=$url1");
 
        $last_time = selectPastTime();
 
